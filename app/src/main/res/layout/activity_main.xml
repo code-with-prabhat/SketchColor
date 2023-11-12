@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#E1F5FE">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
+        android:id="@+id/linear1">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="35sp"
+            android:layout_height="wrap_content"
+            android:text="@string/hashTag"
+            android:paddingBottom="10dp"
+            android:textColor="#607D88"
+            android:gravity="center_horizontal"
+            android:textSize="35sp" />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:textSize="18sp"
+            android:inputType="textCapCharacters"
+            android:textColor="#03A9F4"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:hint="@string/enter_color_code"
+            android:textColorHint="#607D8B"
+            android:singleLine="true"
+            android:paddingBottom="14dp"
+            android:paddingLeft="8dp"
+            android:id="@+id/edittext1"
+            android:layout_width="0dp"/>
+
+        <LinearLayout
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:id="@+id/linear3">
+
+            <Button
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="@string/plus"
+                android:background="#03A9F4"
+                android:textSize="18sp"
+                android:id="@+id/button1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/linear2">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp">
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+
+        <ListView
+            android:id="@+id/list2"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+        />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/no_color_linear"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@xml/shape">
+
+        <TextView
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/cascadia"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="10dp"
+            android:text="@string/colors"
+            android:textColor="#8D6E63"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/import_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FCE4EC"
+            android:fontFamily="@font/cascadia"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/import_exported_color"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SketchColor</string>
+    <string name="colors">No Colors are Added Click To Import From Storage</string>
+    <string name="no_color">No Colors are Added Click To Import From Storage</string>
+    <string name="import_exported_color">Import Exported Color</string>
+    <string name="hashTag">#</string>
+    <string name="enter_color_code">Enter Color Code</string>
+    <string name="plus">+</string>
+
+</resources>

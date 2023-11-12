@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal | center_vertical"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@xml/shape"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal | center_vertical">
+
+        <Button
+            android:layout_height="60dp"
+            android:layout_width="300dp"
+            android:backgroundTint="#FCE4EC"
+            android:fontFamily="@font/cascadia"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:text="Delete Saved Color"
+            android:id="@+id/button1" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#FCE4EC"
+            android:fontFamily="@font/cascadia"
+            android:text="Export All Colors"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/import_button"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#FCE4EC"
+            android:fontFamily="@font/cascadia"
+            android:text="Import Exported Colors"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_height="60dp"
+            android:layout_width="300dp"
+            android:id="@+id/deleteAll"
+            android:layout_marginTop="5dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/cascadia"
+            android:backgroundTint="#FCE4EC"
+            android:textColor="#000000"
+            android:text="Delete All Colors" />
+
+    </LinearLayout>
+
+</LinearLayout>
