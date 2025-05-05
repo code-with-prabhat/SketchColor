@@ -6,13 +6,12 @@ plugins {
 
 android {
     namespace = "com.sketchcolor"
-    compileSdk = 33
-    buildToolsVersion = "33.0.2"
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.sketchcolor"
-        minSdk = 21
-        targetSdk = 33
+        minSdk = 24
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
         
