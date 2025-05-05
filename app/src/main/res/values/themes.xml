@@ -6,6 +6,9 @@
         <item name="colorAccent">#00BCD4</item>
         <item name="colorControlHighlight">#9575CD</item>
         <item name="colorControlNormal">#9575CD</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#F57F17</item>
     </style>
 
     <style name="AppTheme" parent="Base.AppTheme" />

@@ -4,26 +4,28 @@
      android:layout_height="wrap_content"
      android:layout_width="wrap_content"
      android:layout_gravity="center_vertical|center_horizontal"
+     android:layout_margin="4dp"
      android:background="@android:color/transparent">
 
     <LinearLayout
          android:layout_height="70dp"
          android:layout_width="70dp"
-         android:background="#2196F3"
-         android:gravity="center_horizontal"
-         android:layout_margin="2dp"
+         android:background="@drawable/recycler_item_background"
+         android:gravity="center"
          android:orientation="vertical"
          android:id="@+id/linear1">
 
         <TextView
              android:layout_height="wrap_content"
              android:layout_width="wrap_content"
-             android:gravity="center_horizontal|top"
+             android:gravity="center"
              android:textSize="14sp"
-             android:textColor="#FFFFFF"
-             android:layout_marginTop="2dp"
+             android:textStyle="bold"
+             android:textColor="@color/recycler_text"
+             android:padding="4dp"
+             android:maxLines="2"
+             android:ellipsize="end"
              android:focusable="false"
-             android:layout_weight="1"
              android:id="@+id/textview1"
              android:text="DEEP ORANGE" />
 

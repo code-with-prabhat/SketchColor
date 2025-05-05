@@ -81,6 +81,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // Set window flags before setting content view
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#F57F17"));
+            
+            // Make status bar icons visible if the bar color is light
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                View decorView = window.getDecorView();
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
+        
         setContentView(R.layout.activity_main);
         CrashReporter.initialize(this);
         hideKeyboard(this);
@@ -590,14 +604,14 @@ public class MainActivity extends AppCompatActivity {
 
             view.t.setText(array.get(position).get("colorName").toUpperCase());
             view.t.setTextColor(Color.parseColor("#" + array.get(position).get("txtColor")));
-            view.l.setBackground(
-                    new GradientDrawable() {
-                        public GradientDrawable getIns(int c, int d) {
-                            this.setColor(d);
-                            this.setCornerRadius(c);
-                            return this;
-                        }
-                    }.getIns(10, Color.parseColor("#" + array.get(position).get("bgColor"))));
+            
+            // Set background color directly using the drawable resource
+            GradientDrawable background = (GradientDrawable) ContextCompat.getDrawable(context, R.drawable.recycler_item_background);
+            if (background != null) {
+                background.setColor(Color.parseColor("#" + array.get(position).get("bgColor")));
+                view.l.setBackground(background);
+            }
+            
             view.l.setOnClickListener(
                     arg0 -> {
                         if ((position < 1)) {
@@ -733,7 +747,12 @@ public class MainActivity extends AppCompatActivity {
                     });
 
             text.setText("#" + listdata.get(position));
-            linear.setBackgroundColor(Color.parseColor("#" + listdata.get(position)));
+            
+            // Create GradientDrawable with rounded corners for the color item
+            GradientDrawable shape = new GradientDrawable();
+            shape.setColor(Color.parseColor("#" + listdata.get(position)));
+            shape.setCornerRadius(8); // 8dp corner radius
+            linear.setBackground(shape);
 
             return view;
         }
@@ -767,21 +786,47 @@ public class MainActivity extends AppCompatActivity {
             if (view == null) {
                 view = getLayoutInflater().inflate(R.layout.colorv, parent, false);
             }
-
             TextView text = view.findViewById(R.id.textview1);
             ImageView img = view.findViewById(R.id.check);
             LinearLayout linear = view.findViewById(R.id.linear1);
-
             img.setVisibility(View.INVISIBLE);
 
-            if (isDark(listdata.get(position))) {
-                text.setTextColor(Color.WHITE);
-            } else {
+            text.setText(listdata.get(position));
+            
+            try {
+                // Create GradientDrawable with rounded corners for the color item
+                GradientDrawable shape = new GradientDrawable();
+                shape.setColor(Color.parseColor(listdata.get(position)));
+                shape.setCornerRadius(8); // 8dp corner radius
+                linear.setBackground(shape);
+                
+                if (isDark(listdata.get(position))) {
+                    text.setTextColor(Color.WHITE);
+                } else {
+                    text.setTextColor(Color.BLACK);
+                }
+            } catch (Exception e) {
+                linear.setBackgroundColor(Color.WHITE);
                 text.setTextColor(Color.BLACK);
             }
 
-            text.setText(listdata.get(position));
-            linear.setBackgroundColor(Color.parseColor(listdata.get(position)));
+            linear.setOnClickListener(
+                    v -> {
+                        ((ClipboardManager) getSystemService(MainActivity.CLIPBOARD_SERVICE))
+                                .setPrimaryClip(ClipData.newPlainText("clipboard", text.getText().toString()));
+                        Toast.makeText(MainActivity.this, "Copied", Toast.LENGTH_SHORT).show();
+                        img.setVisibility(View.VISIBLE);
+
+                        if (isDark(listdata.get(position))) {
+                            Drawable mIcon = ContextCompat.getDrawable(MainActivity.this, R.drawable.check);
+                            mIcon.setColorFilter(ContextCompat.getColor(MainActivity.this, android.R.color.white), PorterDuff.Mode.MULTIPLY);
+                            img.setImageDrawable(mIcon);
+                        } else {
+                            Drawable mIcon = ContextCompat.getDrawable(MainActivity.this, R.drawable.check);
+                            mIcon.setColorFilter(ContextCompat.getColor(MainActivity.this, com.balsikandar.crashreporter.R.color.black), PorterDuff.Mode.MULTIPLY);
+                            img.setImageDrawable(mIcon);
+                        }
+                    });
 
             return view;
         }

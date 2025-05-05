@@ -5,13 +5,17 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#E1F5FE">
+    android:background="#E1F5FE"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:id="@+id/linear1">
 
         <TextView
@@ -26,17 +30,20 @@
 
         <EditText
             android:layout_height="wrap_content"
-            android:paddingRight="8dp"
-            android:textSize="18sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textSize="16sp"
             android:inputType="textCapCharacters"
-            android:textColor="#03A9F4"
-            android:layout_marginBottom="2dp"
+            android:textColor="@color/edittext_text"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:hint="@string/enter_color_code"
-            android:textColorHint="#607D8B"
+            android:background="@drawable/edit_text_background"
+            android:textColorHint="@color/edittext_hint"
             android:singleLine="true"
-            android:paddingBottom="14dp"
-            android:paddingLeft="8dp"
             android:id="@+id/edittext1"
             android:layout_width="0dp"/>
 
@@ -63,13 +70,18 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="8dp"
         android:id="@+id/linear2">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp" />
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
 
     </LinearLayout>
 

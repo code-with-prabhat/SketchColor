@@ -1,7 +1,5 @@
-
 plugins {
     id("com.android.application")
-
 }
 
 android {
@@ -32,15 +30,21 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
-    
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":crashreporter"))
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("com.google.android.material:material:1.5.0")
     
+    // AndroidX Core libraries
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    
+    // Material Design
+    implementation("com.google.android.material:material:1.11.0")
+    
+    // CardView and RecyclerView
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
